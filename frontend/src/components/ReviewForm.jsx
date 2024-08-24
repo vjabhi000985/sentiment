@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function ReviewForm () {
-    const [reiewText, setReviewText] = useState('');
+    const [reviewText, setReviewText] = useState('');
     const [prediction, setPrediction] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try{
-            const response = await axios.post('/prediction', { reviewText });
+            const response = await axios.post('http://localhost:5000/prediction', { reviewText });
             setPrediction(response.data.prediction);
         }
         catch (error) {
